@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd and Even Numbers</title>
+    <style>
+        table {
+            width: 30%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #000;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Odd and Even Numbers Between 1 and 10</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Odd Numbers</th>
+                <th>Even Numbers</th>
+            </tr>
+        </thead>
+        <tbody id="numbersTable">
+            <!-- Data will be inserted here by JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        // Create arrays for odd and even numbers
+        let oddNumbers = [];
+        let evenNumbers = [];
+
+        // Loop through numbers 1 to 10
+        for (let i = 1; i <= 10; i++) {
+            if (i % 2 === 0) {
+                evenNumbers.push(i);  // Even number
+            } else {
+                oddNumbers.push(i);   // Odd number
+            }
+        }
+
+        // Get the table body element where we will insert rows
+        let tableBody = document.getElementById("numbersTable");
+
+        // Get the maximum length of odd and even numbers arrays
+        let maxLength = Math.max(oddNumbers.length, evenNumbers.length);
+
+        // Loop through the maximum length and create rows
+        for (let i = 0; i < maxLength; i++) {
+            let row = document.createElement("tr");
+
+            // Create cell for odd numbers
+            let oddCell = document.createElement("td");
+            oddCell.textContent = oddNumbers[i] || '';  // If no number, leave it empty
+            row.appendChild(oddCell);
+
+            // Create cell for even numbers
+            let evenCell = document.createElement("td");
+            evenCell.textContent = evenNumbers[i] || '';  // If no number, leave it empty
+            row.appendChild(evenCell);
+
+            // Add the row to the table
+            tableBody.appendChild(row);
+        }
+    </script>
+</body>
+</html>
